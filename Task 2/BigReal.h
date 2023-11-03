@@ -7,9 +7,10 @@ using namespace std;
 
 class BigReal {
 private:
-    string realNumber, integer, frac;
+    string realNumber, intPart, fracPart;
     int sign;
     bool isValidReal(string number);
+    void initParts(string number);
 public:
     BigReal(double number);
     BigReal(string number);

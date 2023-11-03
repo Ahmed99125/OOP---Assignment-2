@@ -1,6 +1,20 @@
 #include "BigReal.h"
 #include <iostream>
 
+void BigReal::initParts(string number) {
+    int isReal{1};
+    for (int i = 0; i < number.size(); i++) {
+        if (number[i] == '.') {
+            isReal = 0;
+            continue;
+        }
+        if (isReal)
+            this->intPart.push_back(number[i]);
+        else
+            this->fracPart.push_back(number[i]);
+    }
+}
+
 BigReal::BigReal(double number) {
     if (!isValidReal(to_string(number))) {
         cout << "Enter a real number";
@@ -10,6 +24,7 @@ BigReal::BigReal(double number) {
     else
         sign = 1;
     realNumber = to_string(number);
+    this->initParts(to_string(number));
 }
 
 BigReal::BigReal(string number) {
@@ -21,6 +36,7 @@ BigReal::BigReal(string number) {
     else
         sign = 1;
     realNumber = number;
+    this->initParts(number);
 }
 
 BigReal::BigReal(const BigReal &other) {
@@ -29,14 +45,18 @@ BigReal::BigReal(const BigReal &other) {
     else
         sign = 1;
     realNumber = other.realNumber;
+    this->initParts(this->realNumber);
 }
 
 BigReal& BigReal::operator=(const BigReal &other) {
     this->realNumber = other.realNumber;
+    this->initParts(this->realNumber);
     if (other.realNumber[0] == '-')
         sign = -1;
     else
         sign = 1;
+
+    return *this;
 }
 
 void BigReal::setNum(string number) {
@@ -48,6 +68,7 @@ void BigReal::setNum(string number) {
     else
         sign = 1;
     this->realNumber = number;
+    this->initParts(this->realNumber);
 }
 
 int BigReal::size() {
@@ -84,40 +105,8 @@ BigReal BigReal::operator+(BigReal &other) {
  * neg neg
  * */
 
-    string real[2], frac[2];
-    int isReal{1};
-    for (int i = 0; i < this->realNumber.size(); i++) {
-        if (this->realNumber[i] == '.') {
-            isReal = 0;
-            continue;
-        }
-        if (isReal)
-            real[0].push_back(this->realNumber[i]);
-        else
-            frac[0].push_back(this->realNumber[i]);
-    }
-    isReal = 1;
-    for (int i = 0; i < other.realNumber.size(); i++) {
-        if (other.realNumber[i] == '.') {
-            isReal = 0;
-            continue;
-        }
-        if (isReal)
-            real[1].push_back(other.realNumber[i]);
-        else
-            frac[1].push_back(other.realNumber[i]);
-    }
-
     // 1st Case
-    if (this->sign > 0 && other.sign > 0) {
-        // make sure the first string is the larger
-        if (real[0].size() < real[1].size())
-            swap(real[0], real[1]);
-        if (frac[0].size() < frac[1].size())
-            swap(frac[0], frac[1]);
-        string newReal, newFrac;
-
-    }
+    
 }
 
 
