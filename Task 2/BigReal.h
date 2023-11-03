@@ -6,12 +6,14 @@
 using namespace std;
 
 class BigReal {
+    friend ostream& operator<<(ostream &os, BigReal num);
 private:
     string realNumber, intPart, fracPart;
     int sign;
     bool isValidReal(string number);
     void initParts(string number);
 public:
+    BigReal();
     BigReal(double number);
     BigReal(string number);
     BigReal(const BigReal &other);
@@ -22,6 +24,7 @@ public:
     int isPositive();
 
     BigReal operator+ (BigReal& other);
+    BigReal operator+ (BigReal&& other);
 };
 
 

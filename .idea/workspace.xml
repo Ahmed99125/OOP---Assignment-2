@@ -21,6 +21,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task 2/BigReal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2/BigReal.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task 2/BigReal.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2/BigReal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <workItem from="1699011184069" duration="3135000" />
       <workItem from="1699015122480" duration="3238000" />
       <workItem from="1699022889705" duration="692000" />
-      <workItem from="1699033287386" duration="3002000" />
+      <workItem from="1699033287386" duration="5806000" />
     </task>
     <servers />
   </component>
