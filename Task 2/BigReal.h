@@ -6,7 +6,7 @@
 using namespace std;
 
 class BigReal {
-    friend ostream& operator<<(ostream &os, BigReal num);
+    friend ostream& operator<<(ostream &os, const BigReal &num);
 private:
     string realNumber, intPart, fracPart;
     int sign;
@@ -29,7 +29,11 @@ public:
     BigReal operator-(BigReal &other);
     BigReal operator-(BigReal &&other);
 
-    bool compMagnitude(const BigReal &num2) const;
+    int compMagnitude(const BigReal &num2) const;
+
+    bool operator<(const BigReal &other) const;
+    bool operator>(const BigReal &other) const;
+    bool operator==(const BigReal &other) const;
 };
 
 

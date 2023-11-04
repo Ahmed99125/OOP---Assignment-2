@@ -174,6 +174,15 @@ BigReal BigReal::operator+(BigReal &other) {
 
         for (int i = 0; i < res.size() / 2; i++)
             swap(res[i], res[res.size()-1-i]);
+        // remove leading zeros
+        int cnt = 0;
+        for (int i = 0; i < res.size() / 2; i++) {
+            if (res[i] != '0')
+                break;
+            cnt++;
+        }
+        res = res.substr(cnt, res.size() - cnt);
+
         if (res == "")
             res = "0";
         return res;
@@ -184,6 +193,9 @@ BigReal BigReal::operator+(BigReal &other) {
         int remainder = 0;
         res.fracPart = add(this->fracPart, other.fracPart, remainder, 0);
         res.intPart = add(this->intPart, other.intPart, remainder, 1);
+        // check if there is still a remainder we did not use
+        if (remainder > 0)
+            res.intPart = "1" + res.intPart;
         res.realNumber = res.intPart + "." + res.fracPart;
         res.sign = this->sign;
     }
@@ -191,7 +203,7 @@ BigReal BigReal::operator+(BigReal &other) {
         // 2nd Case
     else if (this->sign != other.sign) {
         int remainder = 0;
-        if (this->compMagnitude(other)) {
+        if (this->compMagnitude(other) >= 0) {
             res.fracPart = subtract(this->fracPart, other.fracPart, remainder, 0);
             res.intPart = subtract(this->intPart, other.intPart, remainder, 1);
             res.realNumber = res.intPart + "." + res.fracPart;
@@ -290,7 +302,7 @@ BigReal BigReal::operator+(BigReal &&other) {
     // 2nd Case
     else if (this->sign != other.sign) {
         int remainder = 0;
-        if (this->compMagnitude(other)) {
+        if (this->compMagnitude(other) >= 0) {
             res.fracPart = subtract(this->fracPart, other.fracPart, remainder, 0);
             res.intPart = subtract(this->intPart, other.intPart, remainder, 1);
             res.realNumber = res.intPart + "." + res.fracPart;
@@ -329,17 +341,17 @@ BigReal BigReal::operator-(BigReal &&other) {
     return res;
 }
 
-bool BigReal::compMagnitude(const BigReal &num) const {
+int BigReal::compMagnitude(const BigReal &num) const {
     if (this->intPart.size() > num.intPart.size())
         return 1;
     else if (this->intPart.size() < num.intPart.size())
-        return 0;
+        return -1;
 
     for (int i = 0; i < this->intPart.size(); i++) {
         if (this->intPart[i] > num.intPart[i])
             return 1;
         else if (this->intPart[i] < num.intPart[i])
-            return 0;
+            return -1;
     }
 
     // making the fraction string equal to compare digit by digit
@@ -355,14 +367,33 @@ bool BigReal::compMagnitude(const BigReal &num) const {
         if (frac1[i] > frac2[i])
             return 1;
         else if (frac1[i] < frac2[i])
-            return 0;
+            return -1;
     }
 
-    // if the number are equal return 1
-    return 1;
+    // if the number are equal return 0
+    return 0;
 }
 
-ostream &operator<<(ostream &os, BigReal num) {
+bool BigReal::operator<(const BigReal &other) const {
+    if (this->sign < other.sign ||
+        this->sign == other.sign && this->sign == 1 && this->compMagnitude(other) < 0 ||
+        this->sign == other.sign && this->sign == -1 && this->compMagnitude(other) > 0)
+        return 1;
+    return 0;
+}
+bool BigReal::operator>(const BigReal &other) const {
+    // if not less than or equal then it is greater than
+    if (! (*this < other || *this == other))
+        return 1;
+    return 0;
+}
+bool BigReal::operator==(const BigReal &other) const {
+    if (this->sign == other.sign && !this->compMagnitude(other))
+        return 1;
+    return 0;
+}
+
+ostream &operator<<(ostream &os, const BigReal &num) {
     if (num.sign < 0)
         os << '-';
     os << num.realNumber;
