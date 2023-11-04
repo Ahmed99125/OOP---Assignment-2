@@ -17,14 +17,19 @@ public:
     BigReal(double number);
     BigReal(string number);
     BigReal(const BigReal &other);
-    BigReal &operator= (const BigReal &other);
+    BigReal &operator=(const BigReal &other);
 
-    void setNum (string number);
+    void setNum(string number);
     int size();
     int isPositive();
 
-    BigReal operator+ (BigReal& other);
-    BigReal operator+ (BigReal&& other);
+    BigReal operator+(BigReal &other);
+    BigReal operator+(BigReal &&other);
+
+    BigReal operator-(BigReal &other);
+    BigReal operator-(BigReal &&other);
+
+    bool compMagnitude(const BigReal &num2) const;
 };
 
 

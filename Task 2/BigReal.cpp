@@ -73,12 +73,14 @@ void BigReal::setNum(string number) {
     if (!isValidReal(number)) {
         cout << "Enter a real number";
     }
-    if (number[0] == '-')
-        number = number.substr(1, number.size()-1), sign = -1;
-    else
-        sign = 1;
-    this->realNumber = number;
-    this->initParts(this->realNumber);
+    else {
+        if (number[0] == '-')
+            number = number.substr(1, number.size()-1), sign = -1;
+        else
+            sign = 1;
+        this->realNumber = number;
+        this->initParts(this->realNumber);
+    }
 }
 
 int BigReal::size() {
@@ -117,32 +119,93 @@ BigReal BigReal::operator+(BigReal &other) {
 
     BigReal res;
 
-    // lambda function
-    auto add = [] (string num1, string num2, int &r) -> string {
+    // lambda functions
+    auto add = [] (string num1, string num2, int &r, bool isInt) -> string {
         string res;
         if (num1.size() < num2.size())
             swap(num1, num2);
+        if (num1.size() != num2.size()) {
+            string tmp((num1.size() - num2.size()), '0');
+            num2 = (isInt) ? tmp + num2 : num2 + tmp;
+        }
         for (int i = num1.size()-1; i >= 0; i--) {
-            int sum = num1[i]-'0' + r;
-            if (i < num2.size())
-                sum += num2[i]-'0';
+            int sum = num1[i]-'0' + num2[i]-'0' + r;
             res.push_back((sum % 10)+'0');
             r = sum / 10;
         }
         for (int i = 0; i < res.size() / 2; i++)
             swap(res[i], res[res.size()-1-i]);
+        if (res == "")
+            res = "0";
         return res;
     };
 
-    // 1st Case
+    auto subtract = [] (string num1, string num2, int &r, bool isInt) -> string {
+        string res;
+
+        // equaling size of strings
+        if (num1.size() > num2.size()) {
+            string tmp((num1.size() - num2.size()), '0');
+            num2 = (isInt) ? tmp + num2 : num2 + tmp;
+        }
+        else if (num1.size() < num2.size()) {
+            string tmp(num2.size() - num1.size(), '0');
+            num1 = (isInt) ? tmp + num1 : num1 + tmp;
+        }
+
+        for (int i = num1.size()-1; i >= 0; i--) {
+            int val1 = num1[i]-'0', val2 = num2[i]-'0';
+            // checking remainder
+            if (r > 0) {
+                if (val1 > 0) {
+                    val1 -= 1;
+                    r = 0;
+                }
+                else
+                    val1 = 9;
+            }
+
+            if (val1 < val2) {
+                val1 += 10;
+                r = 1;
+            }
+            res.push_back((val1 - val2) + '0');
+        }
+
+        for (int i = 0; i < res.size() / 2; i++)
+            swap(res[i], res[res.size()-1-i]);
+        if (res == "")
+            res = "0";
+        return res;
+    };
+
+    // 1st and 3rd Case
     if (this->sign == other.sign) {
         int remainder = 0;
-        res.fracPart = add(this->fracPart, other.fracPart, remainder);
-        res.intPart = add(this->intPart, other.intPart, remainder);
+        res.fracPart = add(this->fracPart, other.fracPart, remainder, 0);
+        res.intPart = add(this->intPart, other.intPart, remainder, 1);
         res.realNumber = res.intPart + "." + res.fracPart;
         res.sign = this->sign;
-        return res;
     }
+
+        // 2nd Case
+    else if (this->sign != other.sign) {
+        int remainder = 0;
+        if (this->compMagnitude(other)) {
+            res.fracPart = subtract(this->fracPart, other.fracPart, remainder, 0);
+            res.intPart = subtract(this->intPart, other.intPart, remainder, 1);
+            res.realNumber = res.intPart + "." + res.fracPart;
+            res.sign = this->sign;
+        }
+        else {
+            res.fracPart = subtract(other.fracPart, this->fracPart, remainder, 0);
+            res.intPart = subtract(other.intPart, this->intPart, remainder, 1);
+            res.realNumber = res.intPart + "." + res.fracPart;
+            res.sign = other.sign;
+        }
+    }
+
+    return res;
 }
 
 BigReal BigReal::operator+(BigReal &&other) {
@@ -155,19 +218,14 @@ BigReal BigReal::operator+(BigReal &&other) {
 
     BigReal res;
 
-    // lambda function
+    // lambda functions
     auto add = [] (string num1, string num2, int &r, bool isInt) -> string {
         string res;
         if (num1.size() < num2.size())
             swap(num1, num2);
         if (num1.size() != num2.size()) {
-            string tmp;
-            for (int i = 0; i < (num1.size() - num2.size()); i++)
-                tmp.push_back('0');
-            if (isInt)
-                num2 = tmp + num2;
-            else
-                num2 = num2 + tmp;
+            string tmp((num1.size() - num2.size()), '0');
+            num2 = (isInt) ? tmp + num2 : num2 + tmp;
         }
         for (int i = num1.size()-1; i >= 0; i--) {
             int sum = num1[i]-'0' + num2[i]-'0' + r;
@@ -176,6 +234,47 @@ BigReal BigReal::operator+(BigReal &&other) {
         }
         for (int i = 0; i < res.size() / 2; i++)
             swap(res[i], res[res.size()-1-i]);
+        if (res == "")
+            res = "0";
+        return res;
+    };
+
+    auto subtract = [] (string num1, string num2, int &r, bool isInt) -> string {
+        string res;
+
+        // equaling size of strings
+        if (num1.size() > num2.size()) {
+            string tmp((num1.size() - num2.size()), '0');
+            num2 = (isInt) ? tmp + num2 : num2 + tmp;
+        }
+        else if (num1.size() < num2.size()) {
+            string tmp(num2.size() - num1.size(), '0');
+            num1 = (isInt) ? tmp + num1 : num1 + tmp;
+        }
+
+        for (int i = num1.size()-1; i >= 0; i--) {
+            int val1 = num1[i]-'0', val2 = num2[i]-'0';
+            // checking remainder
+            if (r > 0) {
+                if (val1 > 0) {
+                    val1 -= 1;
+                    r = 0;
+                }
+                else
+                    val1 = 9;
+            }
+
+            if (val1 < val2) {
+                val1 += 10;
+                r = 1;
+            }
+            res.push_back((val1 - val2) + '0');
+        }
+
+        for (int i = 0; i < res.size() / 2; i++)
+            swap(res[i], res[res.size()-1-i]);
+        if (res == "")
+            res = "0";
         return res;
     };
 
@@ -186,13 +285,81 @@ BigReal BigReal::operator+(BigReal &&other) {
         res.intPart = add(this->intPart, other.intPart, remainder, 1);
         res.realNumber = res.intPart + "." + res.fracPart;
         res.sign = this->sign;
-        return res;
     }
 
     // 2nd Case
-    if (this->sign != other.sign) {
-        a   
+    else if (this->sign != other.sign) {
+        int remainder = 0;
+        if (this->compMagnitude(other)) {
+            res.fracPart = subtract(this->fracPart, other.fracPart, remainder, 0);
+            res.intPart = subtract(this->intPart, other.intPart, remainder, 1);
+            res.realNumber = res.intPart + "." + res.fracPart;
+            res.sign = this->sign;
+        }
+        else {
+            res.fracPart = subtract(other.fracPart, this->fracPart, remainder, 0);
+            res.intPart = subtract(other.intPart, this->intPart, remainder, 1);
+            res.realNumber = res.intPart + "." + res.fracPart;
+            res.sign = other.sign;
+        }
     }
+
+    return res;
+}
+
+BigReal BigReal::operator-(BigReal &other) {
+    // subtracting simply means fliping the sign of the second number and adding them
+    BigReal res;
+
+    other.sign *= -1;
+    res = *this + other;
+    other.sign *= -1;
+
+    return res;
+}
+
+BigReal BigReal::operator-(BigReal &&other) {
+    // subtracting simply means fliping the sign of the second number and adding them
+    BigReal res;
+
+    other.sign *= -1;
+    res = *this + other;
+    other.sign *= -1;
+
+    return res;
+}
+
+bool BigReal::compMagnitude(const BigReal &num) const {
+    if (this->intPart.size() > num.intPart.size())
+        return 1;
+    else if (this->intPart.size() < num.intPart.size())
+        return 0;
+
+    for (int i = 0; i < this->intPart.size(); i++) {
+        if (this->intPart[i] > num.intPart[i])
+            return 1;
+        else if (this->intPart[i] < num.intPart[i])
+            return 0;
+    }
+
+    // making the fraction string equal to compare digit by digit
+    string frac1 = this->fracPart, frac2 = num.fracPart;
+    int diff = max(frac1.size(), frac2.size()) - min(frac1.size(), frac2.size());
+    string tmp(diff, '0');
+    if (frac1.size() < frac2.size())
+        frac1 += tmp;
+    else if (frac1.size() > frac2.size())
+        frac2 += tmp;
+
+    for (int i = 0; i < frac1.size(); i++) {
+        if (frac1[i] > frac2[i])
+            return 1;
+        else if (frac1[i] < frac2[i])
+            return 0;
+    }
+
+    // if the number are equal return 1
+    return 1;
 }
 
 ostream &operator<<(ostream &os, BigReal num) {
