@@ -1,0 +1,14 @@
+Dear [Your Name],
+
+We have detected unusual login activity on your account. To ensure your account's security, please confirm your login information and password immediately. Failure to take action may result in account suspension.
+
+Click on the link below to access your account:
+[Phishing Link]
+
+Please note that this is an urgent request, and immediate action is required to avoid any risks associated with your account. We value your account's security and appreciate your attention to this matter.
+
+Sincerely,
+[Your Name]
+[Your Company]
+
+Please remember that legitimate organizations typically won't send unsolicited emails with such urgent requests and often include specific information about your account or issue. Always verify the sender and the email's authenticity before taking any action.
