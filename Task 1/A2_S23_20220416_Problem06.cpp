@@ -1,3 +1,11 @@
+// File: A2_S23_20220013_Problem03.cpp
+// Purpose: .........
+// Author: Youssef Nasser Mohamed
+// Section: S23
+// ID: 20220416
+// TA: ........................
+// Date: 26 Oct 2023
+
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -6,19 +14,27 @@
 
 using namespace std;
 
-void binaryPrint(int n) {
-    if (n == 0) {
+void binaryPrint(int n)
+{
+    if (n == 0)
+    {
         cout << 0;
-    } else if (n == 1) {
+    }
+    else if (n == 1)
+    {
         cout << 1;
-    } else {
+    }
+    else
+    {
         binaryPrint(n / 2);
         cout << n % 2;
     }
 }
 
-void backTrack(string& prefix, int &k, string res) {
-    if(res.length() == k) {
+void backTrack(string &prefix, int &k, string res)
+{
+    if (res.length() == k)
+    {
         cout << prefix << res << "\n";
         return;
     }
@@ -26,8 +42,10 @@ void backTrack(string& prefix, int &k, string res) {
     backTrack(prefix, k, res + "1");
 }
 
-void numbers(string prefix, int k) {
-    if(k > 0) {
+void numbers(string prefix, int k)
+{
+    if (k > 0)
+    {
         backTrack(prefix, k, "");
     }
 }

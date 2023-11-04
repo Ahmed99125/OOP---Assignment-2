@@ -1,3 +1,11 @@
+// File: A2_S23_20220013_Problem03.cpp
+// Purpose: .........
+// Author: Youssef Nasser Mohamed
+// Section: S23
+// ID: 20220416
+// TA: ........................
+// Date: 26 Oct 2023
+
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -8,11 +16,13 @@
 
 using namespace std;
 
-vector<string> split(const string& input, const string& delimiter) {
+vector<string> split(const string &input, const string &delimiter)
+{
     vector<string> result;
     long long int start = 0, end = 0;
 
-    while ((end = input.find(delimiter, start)) != string::npos) {
+    while ((end = input.find(delimiter, start)) != string::npos)
+    {
         result.push_back(input.substr(start, end - start));
         start = end + delimiter.length();
     }
@@ -25,7 +35,8 @@ int main()
 {
     vector<string> words = {"urgent", "verify", "password", "account", "payment", "suspicious", "update", "unusual", "confirm", "information", "security", "login", "bank", "notification", "action", "due", "attention", "review", "access", "email", "free", "win", "prize", "risk", "emergency", "warning", "failure", "immediate", "limited", "data"};
     ifstream inputFile("email.txt");
-    if (!inputFile.is_open()) {
+    if (!inputFile.is_open())
+    {
         cout << "Error opening the file." << endl;
         return 1;
     }
@@ -62,19 +73,23 @@ int main()
     values["immediate"] = 2;
     values["limited"] = 2;
     values["data"] = 2;
-    for(int i=0; i<words.size(); ++i) {
+    for (int i = 0; i < words.size(); ++i)
+    {
         m[words[i]] = 0;
     }
     int totalPoints = 0;
-    
-    while (getline(inputFile, line)) {
-        transform(line.begin(), line.end(), line.begin(), [](unsigned char c) {
-            return tolower(c);
-        });
+
+    while (getline(inputFile, line))
+    {
+        transform(line.begin(), line.end(), line.begin(), [](unsigned char c)
+                  { return tolower(c); });
         vector<string> vec = split(line, " ");
-        for(int i=0; i<vec.size(); ++i) {
-            for(int j=0; j<words.size(); ++j) {
-                if(vec[i].find(words[j], 0) != string::npos) {
+        for (int i = 0; i < vec.size(); ++i)
+        {
+            for (int j = 0; j < words.size(); ++j)
+            {
+                if (vec[i].find(words[j], 0) != string::npos)
+                {
                     m[words[j]] += 1;
                     totalPoints += values[words[j]];
                     break;
@@ -82,8 +97,10 @@ int main()
             }
         }
     }
-    for(int i=0; i<words.size(); ++i) {
-        cout << words[i] << " => " << m[words[i]] << "  " << "Point-Total => " << m[words[i]] * values[words[i]] << "\n";
+    for (int i = 0; i < words.size(); ++i)
+    {
+        cout << words[i] << " => " << m[words[i]] << "  "
+             << "Point-Total => " << m[words[i]] * values[words[i]] << "\n";
     }
     cout << "\nFinal-Point-Total => " << totalPoints << "\n";
     return 0;
