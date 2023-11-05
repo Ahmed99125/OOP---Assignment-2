@@ -1,13 +1,15 @@
 #include "BigReal.h"
 #include <iostream>
 
+// takes the number and breaks it to integer and fraction
 void BigReal::initParts(string number) {
-    int isReal{1};
+    bool isReal{1};
 
     if (number.size() > 0 && number[0] != '.')
         intPart.clear();
 
     for (int i = 0; i < number.size(); i++) {
+        // check if we finished the integer part
         if (number[i] == '.') {
             fracPart.clear();
             isReal = 0;
@@ -20,47 +22,78 @@ void BigReal::initParts(string number) {
     }
 }
 
+// default constructor
 BigReal::BigReal()
 : realNumber{"0.0"}, intPart{"0"}, fracPart{"0"}, sign{0} {
 
 }
 
+// constructor
 BigReal::BigReal(double number)
 : realNumber{"0.0"}, intPart{"0"}, fracPart{"0"}, sign{0} {
+    // check if the number is valid
     if (!isValidReal(to_string(number))) {
         cout << "Not valid input" << endl;
     }
     else {
+        // initiating sign
         if (number < 0)
             sign = -1, number *= -1;
         else
             sign = 1;
         realNumber = to_string(number);
         this->initParts(to_string(number));
+
+        // remove leading zeros
+        int cnt = 0;
+        for (int i = 0; i < intPart.size() / 2; i++) {
+            if (intPart[i] != '0')
+                break;
+            cnt++;
+        }
+        intPart = intPart.substr(cnt, intPart.size() - cnt);
+
+        realNumber = intPart + "." + fracPart;
     }
 }
 
+// constructor
 BigReal::BigReal(string number)
 : realNumber{"0.0"}, intPart{"0"}, fracPart{"0"}, sign{0} {
+    // check if the number is valid
     if (!isValidReal(number)) {
         cout << "Not valid input" << endl;
     }
     else {
+        // initiating sign
         if (number[0] == '-')
             sign = -1, number = number.substr(1, number.size()-1);
         else
             sign = 1;
         realNumber = number;
         this->initParts(number);
+
+        // remove leading zeros
+        int cnt = 0;
+        for (int i = 0; i < intPart.size() / 2; i++) {
+            if (intPart[i] != '0')
+                break;
+            cnt++;
+        }
+        intPart = intPart.substr(cnt, intPart.size() - cnt);
+
+        realNumber = intPart + "." + fracPart;
     }
 }
 
+// copy constructor
 BigReal::BigReal(const BigReal &other) {
     realNumber = other.realNumber;
     sign = other.sign;
     this->initParts(this->realNumber);
 }
 
+// assignment overload
 BigReal& BigReal::operator=(const BigReal &other) {
     this->realNumber = other.realNumber;
     sign = other.sign;
@@ -69,6 +102,7 @@ BigReal& BigReal::operator=(const BigReal &other) {
     return *this;
 }
 
+// setter for the number
 void BigReal::setNum(string number) {
     if (!isValidReal(number)) {
         cout << "Enter a real number";
@@ -80,20 +114,36 @@ void BigReal::setNum(string number) {
             sign = 1;
         this->realNumber = number;
         this->initParts(this->realNumber);
+
+        // remove leading zeros
+        int cnt = 0;
+        for (int i = 0; i < intPart.size() / 2; i++) {
+            if (intPart[i] != '0')
+                break;
+            cnt++;
+        }
+        intPart = intPart.substr(cnt, intPart.size() - cnt);
+
+        realNumber = intPart + "." + fracPart;
     }
 }
 
+// return size
 int BigReal::size() {
     return realNumber.size();
 }
 
+// return sign
 int BigReal::isPositive() {
     return sign;
 }
 
+// check validity
 bool BigReal::isValidReal(string number) {
+    // dots is a counter of number of dots
     int start = 0, dots = 0;
 
+    // sign checking
     if (number[start] == '-' || number[start] == '+')
         start++;
 
@@ -102,6 +152,7 @@ bool BigReal::isValidReal(string number) {
             dots++;
             continue;
         }
+        // if the character is not a number return false
         if (number[i] < '0' || number[i] > '9')
             return false;
     }
@@ -128,13 +179,16 @@ BigReal BigReal::operator+(BigReal &other) {
             string tmp((num1.size() - num2.size()), '0');
             num2 = (isInt) ? tmp + num2 : num2 + tmp;
         }
+
         for (int i = num1.size()-1; i >= 0; i--) {
             int sum = num1[i]-'0' + num2[i]-'0' + r;
             res.push_back((sum % 10)+'0');
             r = sum / 10;
         }
+
         for (int i = 0; i < res.size() / 2; i++)
             swap(res[i], res[res.size()-1-i]);
+
         if (res == "")
             res = "0";
         return res;
@@ -156,6 +210,7 @@ BigReal BigReal::operator+(BigReal &other) {
         for (int i = num1.size()-1; i >= 0; i--) {
             int val1 = num1[i]-'0', val2 = num2[i]-'0';
             // checking remainder
+            // if remainder is greater than 0
             if (r > 0) {
                 if (val1 > 0) {
                     val1 -= 1;
@@ -174,6 +229,7 @@ BigReal BigReal::operator+(BigReal &other) {
 
         for (int i = 0; i < res.size() / 2; i++)
             swap(res[i], res[res.size()-1-i]);
+
         // remove leading zeros
         int cnt = 0;
         for (int i = 0; i < res.size() / 2; i++) {
@@ -191,6 +247,7 @@ BigReal BigReal::operator+(BigReal &other) {
     // 1st and 3rd Case
     if (this->sign == other.sign) {
         int remainder = 0;
+        // sending the remainder by reference
         res.fracPart = add(this->fracPart, other.fracPart, remainder, 0);
         res.intPart = add(this->intPart, other.intPart, remainder, 1);
         // check if there is still a remainder we did not use
@@ -200,7 +257,7 @@ BigReal BigReal::operator+(BigReal &other) {
         res.sign = this->sign;
     }
 
-        // 2nd Case
+    // 2nd Case
     else if (this->sign != other.sign) {
         int remainder = 0;
         if (this->compMagnitude(other) >= 0) {
@@ -220,6 +277,7 @@ BigReal BigReal::operator+(BigReal &other) {
     return res;
 }
 
+// same function but for rhs
 BigReal BigReal::operator+(BigReal &&other) {
 /*
  * 3 cases
@@ -320,7 +378,7 @@ BigReal BigReal::operator+(BigReal &&other) {
 }
 
 BigReal BigReal::operator-(BigReal &other) {
-    // subtracting simply means fliping the sign of the second number and adding them
+    // subtracting simply means flipping the sign of the second number and adding them
     BigReal res;
 
     other.sign *= -1;
@@ -341,6 +399,7 @@ BigReal BigReal::operator-(BigReal &&other) {
     return res;
 }
 
+// return 1 if >, -1 if <, 0 if ==
 int BigReal::compMagnitude(const BigReal &num) const {
     if (this->intPart.size() > num.intPart.size())
         return 1;
@@ -370,7 +429,7 @@ int BigReal::compMagnitude(const BigReal &num) const {
             return -1;
     }
 
-    // if the number are equal return 0
+    // if the numbers are equal return 0
     return 0;
 }
 
