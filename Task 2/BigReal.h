@@ -2,7 +2,13 @@
 #define ASSIGNMENT_2_BIGREAL_H
 
 #include <string>
-
+// File: BigReal.cpp
+// Purpose: the header that had the prototype of the function and constructors of the class
+// Author: Ahmed tamer fathy _ moahmed mostafa  ali _ Youssef Nasser Mohamed
+// Section: S23
+// ID: 20220013 _ 20220309 _ 20220416
+// TA: mohamed talaat
+// Date: 31 Oct 2023
 using namespace std;
 
 class BigReal {
