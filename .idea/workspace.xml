@@ -18,7 +18,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b20047f-fe44-403c-9aec-1f6f287b8046" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Task 2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 2/BigReal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2/BigReal.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,8 @@
       <workItem from="1699015122480" duration="3238000" />
       <workItem from="1699022889705" duration="692000" />
       <workItem from="1699033287386" duration="5806000" />
-      <workItem from="1699116049527" duration="1000" />
+      <workItem from="1699116049527" duration="614000" />
+      <workItem from="1699199827922" duration="1847000" />
     </task>
     <servers />
   </component>
