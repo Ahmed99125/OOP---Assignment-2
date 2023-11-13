@@ -7,6 +7,17 @@
 
 
 class Machine {
+private:
+    Register aregister;
+    memory memory;
+    int instructionRegister;
+    int programCounter;
+public:
+    void Machine();
+    void SetInstructionRegister();
+    void SetProgramCounter();
+    void fetch();
+
 
 };
 
