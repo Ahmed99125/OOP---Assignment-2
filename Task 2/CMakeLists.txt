@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Task_2
         BigReal.cpp
         BigReal.h
-        main.cpp)
+         A2_Task2_s23_20220309_20220013_20220416.cpp.cpp)

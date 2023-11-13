@@ -1,5 +1,14 @@
 #include "BigReal.h"
 #include <iostream>
+// File: BigReal.cpp
+// Purpose: the implementation of the class
+// Author: Ahmed tamer fathy _ moahmed mostafa  ali _ Youssef Nasser Mohamed
+// Section: S23
+// ID: 20220013 _ 20220309 _ 20220416
+// TA: mohamed talaat
+// Date: 31 Oct 2023
+
+
 
 // takes the number and breaks it to integer and fraction
 void BigReal::initParts(string number) {
@@ -399,7 +408,7 @@ BigReal BigReal::operator-(BigReal &&other) {
     return res;
 }
 
-// return 1 if >, -1 if <, 0 if ==
+// returning 1 if the first number is larger, -1 if the second number is larger, and 0 if they are equal.
 int BigReal::compMagnitude(const BigReal &num) const {
     if (this->intPart.size() > num.intPart.size())
         return 1;
