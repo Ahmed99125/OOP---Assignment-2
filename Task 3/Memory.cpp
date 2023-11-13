@@ -1,5 +1,9 @@
-//
-// Created by at991 on 11/13/2023.
-//
-
 #include "Memory.h"
+
+void Memory::setMemory(int address, int val) {
+    memory[address] = val;
+}
+
+int Memory::getMemory(int address) {
+    return memory[address];
+}
