@@ -20,3 +20,9 @@ void Memory:: GetInstructions(string fileName){
         counter++;
     }
 }
+void Memory:: PrintMemory(){
+    for(int  i= 0 ; i< 256; i++){
+       cout << hex << i << "   " << memory[i]<< endl;
+
+    }
+}

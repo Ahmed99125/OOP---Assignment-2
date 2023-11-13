@@ -9,7 +9,7 @@ void Machine::SetInstructionRegister(string val) {
 }
 
 void Machine::FetchNextInstruction() {
-    string tmp = memory.getMemory(programCounter) + memory.getMemory(programCounter+1);
+    string tmp = getMemory(programCounter) + getMemory(programCounter+1);
     if ((tmp[0] < '1' || tmp[0] > '5') && (tmp[0] != 'B' && tmp[0] != 'C')) {
         cout << "This instruction is not valid." << endl;
         return;
@@ -24,17 +24,28 @@ void Machine::FetchNextInstruction() {
     instructionRegister = tmp;
     programCounter += 2;
 }
-
-void Machine::display() {
-    cout << "1- Load new instruction file:" << endl;
-    cout << "2- Fitch next instruction and execute" << endl;
-    cout << "3- Print Registers" << endl;
-    cout << "4- Print Instruction register" << endl;
-    cout << "5- Print Program counter" << endl;
-    cout << "6- Print All Information" << endl;
-    cout << "0- Exit" << endl;
+void Machine:: executeInstruction(){
+    switch (instructionRegister[0]) {
+        case '1':
+            Instruction1(instructionRegister);
+            break;
+        case '2':
+            break;
+        case '3':
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case 'B':
+            break;
+        case 'C':
+            break;
+    }
 }
-
-void Machine::loadInstruction(string fileName) {
-    memory.GetInstructions(fileName);
+string Machine::GetInstructionRegister(){
+    return instructionRegister;
+}
+int Machine::GetProgramCounter(){
+    return  programCounter;
 }

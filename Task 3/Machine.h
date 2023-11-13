@@ -9,22 +9,23 @@
 #include <iostream>
 #include "Registers.h"
 #include "Memory.h"
+#include "Instructions.h"
 
 using namespace std;
 
-class Machine {
+class Machine : public Instructions{
 private:
-    Registers registers;
-    Memory memory;
     string instructionRegister;
     int programCounter = 0;
 public:
-    void display();
+
     void SetInstructionRegister(string val);
+    string GetInstructionRegister();
     void SetProgramCounter(int val);
     void FetchNextInstruction();
     void executeInstruction(); // uncompleted
-    void loadInstruction(string fileName);
+    int GetProgramCounter();
+
 };
 
 
