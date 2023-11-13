@@ -17,11 +17,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b20047f-fe44-403c-9aec-1f6f287b8046" name="Changes" comment="qwe">
+    <list default="true" id="9b20047f-fe44-403c-9aec-1f6f287b8046" name="Changes" comment="df">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 3/Machine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Machine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 3/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Machine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task 3/Memory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Memory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task 3/Memory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Memory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 3/Registers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Registers.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task 3/Registers.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/Registers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +94,7 @@
       <workItem from="1699033287386" duration="5806000" />
       <workItem from="1699116049527" duration="614000" />
       <workItem from="1699199827922" duration="2472000" />
-      <workItem from="1699885296858" duration="1452000" />
+      <workItem from="1699885296858" duration="8311000" />
     </task>
     <task id="LOCAL-00001" summary="qwe">
       <created>1699885880584</created>
@@ -99,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699885880584</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="df">
+      <created>1699886772981</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699886772981</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +129,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="qwe" />
-    <option name="LAST_COMMIT_MESSAGE" value="qwe" />
+    <MESSAGE value="df" />
+    <option name="LAST_COMMIT_MESSAGE" value="df" />
   </component>
 </project>

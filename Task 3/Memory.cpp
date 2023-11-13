@@ -8,6 +8,7 @@ void Memory::setMemory(int address, string val) {
 string Memory::getMemory(int address) {
     return memory[address];
 }
+
 void Memory:: GetInstructions(string fileName){
     ifstream f1(fileName);
     string instruction;

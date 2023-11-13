@@ -4,10 +4,10 @@
 
 #include "Registers.h"
 
-void Registers::SetRegister(int address, int val){
+void Registers::SetRegister(int address, string val){
     registers[address] = val;
 }
 
-int Registers::GetRegister(int address){
+string Registers::GetRegister(int address){
     return registers[address];
 }
