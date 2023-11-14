@@ -18,6 +18,9 @@ public:
     void Instruction2(string instruction);
     void Instruction3(string instruction);
     void Instruction4(string instruction);
+    void Instruction5(string instruction);
+    int InstructionB(string instruction, int prCounter);
+    void InstructionC(string instruction);
     void PrintScreen();
     void ClearScreen();
 };

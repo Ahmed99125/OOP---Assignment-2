@@ -48,6 +48,35 @@ void Instructions::Instruction4(string instruction) {
     SetRegister(secondAddress, GetRegister(firstRegister));
 }
 
+void Instructions::Instruction5(string instruction) {
+    // convert the hex string to int
+    int firstRegister = (instruction[2] >= 'A') ? (instruction[2] - 'A' + 10) : (instruction[2] - '0');
+    // convert the hex char to string
+    int secondRegister =  (instruction[3] >= 'A') ? (instruction[3] - 'A' + 10) : (instruction[3] - '0');
+
+    int thirdRegister = (instruction[1] >= 'A') ? (instruction[1] - 'A' + 10) : (instruction[1] - '0');
+    int sum = stoi(GetRegister(firstRegister)) + stoi(GetRegister(secondRegister));
+    SetRegister(thirdRegister, to_string(sum));
+}
+
+int Instructions::InstructionB(string instruction, int prCounter) {
+    // convert the hex string to int
+    int firstRegister = 0;
+    // convert the hex char to string
+    int secondRegister =  (instruction[1] >= 'A') ? (instruction[1] - 'A' + 10) : (instruction[1] - '0');
+    if(GetRegister(firstRegister) == GetRegister(secondRegister)) {
+        return stoul(instruction.substr(2,2), 0, 16);
+    }
+    return prCounter;
+}
+
+void Instructions::InstructionC(string instruction) {
+    if(instruction == "C000") {
+        PrintScreen();
+    }
+    
+}
+
 void Instructions::PrintScreen() {
     cout << screen << endl;
 }

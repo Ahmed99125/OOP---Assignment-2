@@ -17,15 +17,17 @@ class Machine : public Instructions{
 private:
     string instructionRegister;
     int programCounter = 0;
+    bool running = true;
 public:
 
     void SetInstructionRegister(string val);
     void SetProgramCounter(int val);
+    void SetRunning(bool run);
     string GetInstructionRegister();
     void FetchNextInstruction();
     void executeInstruction(); // uncompleted
     int GetProgramCounter();
-
+    bool GetRunning();
 };
 
 
