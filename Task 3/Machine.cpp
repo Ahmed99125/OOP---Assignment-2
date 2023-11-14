@@ -19,10 +19,10 @@ void Machine::FetchNextInstruction() {
             cout << "This instruction is not valid." << endl;
             return;
         }
-        executeInstruction();
     }
     instructionRegister = tmp;
     programCounter += 2;
+    executeInstruction();
 }
 void Machine:: executeInstruction(){
     switch (instructionRegister[0]) {
@@ -30,10 +30,13 @@ void Machine:: executeInstruction(){
             Instruction1(instructionRegister);
             break;
         case '2':
+            Instruction2(instructionRegister);
             break;
         case '3':
+            Instruction3(instructionRegister);
             break;
         case '4':
+            Instruction4(instructionRegister);
             break;
         case '5':
             break;

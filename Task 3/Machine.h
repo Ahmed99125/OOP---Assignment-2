@@ -20,8 +20,8 @@ private:
 public:
 
     void SetInstructionRegister(string val);
-    string GetInstructionRegister();
     void SetProgramCounter(int val);
+    string GetInstructionRegister();
     void FetchNextInstruction();
     void executeInstruction(); // uncompleted
     int GetProgramCounter();

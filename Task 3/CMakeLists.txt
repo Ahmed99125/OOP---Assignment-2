@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.23)
 project(Task_3)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(Task_3
-        Instructions.cpp
         Instructions.h
-        Machine.cpp
+        Instructions.cpp
         Machine.h
-        main.cpp
-        Memory.cpp
+        Machine.cpp
         Memory.h
+        Memory.cpp
+        Registers.h
         Registers.cpp
-        Registers.h)
+        main.cpp)

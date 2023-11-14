@@ -42,6 +42,13 @@ int main(){
                 cout<< machine.GetProgramCounter();
                 cout<< machine.GetInstructionRegister();
                 break;
+            case 8:
+                machine.PrintScreen();
+                break;
+            case 9:
+                machine.ClearScreen();
+                break;
+
             case 0:
                 break;
         }
@@ -49,6 +56,7 @@ int main(){
     }
 
 }
+
 void display() {
     cout << "1- Load a new instruction file:" << endl;
     cout << "2- Fitch next instruction and execute" << endl;
@@ -57,5 +65,7 @@ void display() {
     cout << "5- Print Program counter" << endl;
     cout << "6- print memory"<< endl;
     cout << "7- Print All Information" << endl;
+    cout << "8- Print screen" << endl;
+    cout << "9- Clear screen" << endl;
     cout << "0- Exit" << endl;
 }

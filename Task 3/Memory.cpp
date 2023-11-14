@@ -14,15 +14,16 @@ void Memory:: GetInstructions(string fileName){
     string instruction;
     int counter = 0 ;
     while(getline(f1,instruction)){
-        memory[counter] = instruction[0] + instruction[2];
+        memory[counter] = instruction[0];
+        memory[counter].push_back(instruction[2]);
         counter ++;
-        memory[counter] = instruction[4] + instruction[5];
+        memory[counter] = instruction[4];
+        memory[counter].push_back(instruction[5]);
         counter++;
     }
 }
 void Memory:: PrintMemory(){
     for(int  i= 0 ; i< 256; i++){
        cout << hex << i << "   " << memory[i]<< endl;
-
     }
 }

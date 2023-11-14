@@ -12,9 +12,14 @@ using namespace std;
 
 class Instructions:  public Memory, public Registers {
 private:
-
+    string screen = "Screen:\n";
 public:
     void Instruction1(string instruction);
+    void Instruction2(string instruction);
+    void Instruction3(string instruction);
+    void Instruction4(string instruction);
+    void PrintScreen();
+    void ClearScreen();
 };
 
 
