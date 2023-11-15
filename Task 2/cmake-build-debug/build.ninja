@@ -58,8 +58,8 @@ build CMakeFiles/Task_2.dir/BigReal.cpp.obj: CXX_COMPILER__Task_2_Debug D$:/Docu
   TARGET_COMPILE_PDB = CMakeFiles\Task_2.dir\
   TARGET_PDB = Task_2.pdb
 
-build CMakeFiles/Task_2.dir/main.cpp.obj: CXX_COMPILER__Task_2_Debug D$:/Documents/FCAI/OOP/Assignment-2/Task$ 2/main.cpp || cmake_object_order_depends_target_Task_2
-  DEP_FILE = CMakeFiles\Task_2.dir\main.cpp.obj.d
+build CMakeFiles/Task_2.dir/A2_Task2_s23_20220309_20220013_20220416.cpp.cpp.obj: CXX_COMPILER__Task_2_Debug D$:/Documents/FCAI/OOP/Assignment-2/Task$ 2/A2_Task2_s23_20220309_20220013_20220416.cpp.cpp || cmake_object_order_depends_target_Task_2
+  DEP_FILE = CMakeFiles\Task_2.dir\A2_Task2_s23_20220309_20220013_20220416.cpp.cpp.obj.d
   FLAGS = -g -std=gnu++14
   INCLUDES = -I"D:/Documents/FCAI/OOP/Assignment-2/Task 2/."
   OBJECT_DIR = CMakeFiles\Task_2.dir
@@ -75,7 +75,7 @@ build CMakeFiles/Task_2.dir/main.cpp.obj: CXX_COMPILER__Task_2_Debug D$:/Documen
 #############################################
 # Link the executable Task_2.exe
 
-build Task_2.exe: CXX_EXECUTABLE_LINKER__Task_2_Debug CMakeFiles/Task_2.dir/BigReal.cpp.obj CMakeFiles/Task_2.dir/main.cpp.obj
+build Task_2.exe: CXX_EXECUTABLE_LINKER__Task_2_Debug CMakeFiles/Task_2.dir/BigReal.cpp.obj CMakeFiles/Task_2.dir/A2_Task2_s23_20220309_20220013_20220416.cpp.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Task_2.dir

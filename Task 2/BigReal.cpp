@@ -465,16 +465,5 @@ ostream &operator<<(ostream &os, const BigReal &num) {
     if (num.sign < 0)
         os << '-';
     os << num.realNumber;
+    return os;
 }
-
-
-
-
-
-
-
-
-
-
-
-
