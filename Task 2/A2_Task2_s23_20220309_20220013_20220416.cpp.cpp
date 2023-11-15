@@ -12,7 +12,7 @@
 using namespace std;
 
 int main() {
-    string n = "15";
+
     BigReal num = string("9");
     BigReal num2 = num;
     num2 = BigReal(9) + num2;
