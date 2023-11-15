@@ -4,19 +4,15 @@
 
 #include "Instructions.h"
 
-string toBinary(string num) {
+string toBinary(int num) {
     string result = "";
-    int n = stoi(num);
-    while(n > 0) {
-        int carry = n % 2;
-        n /= 2;
+    while(num > 0) {
+        int carry = num % 2;
+        num /= 2;
         result = to_string(carry) + result;
     }
     return result;
 }
-
-#include <iostream>
-#include <algorithm>
 
 string addBinaryStrings(const string& binary1, const string& binary2) {
     // Make sure both strings have the same length by adding leading zeros
@@ -59,18 +55,6 @@ string addBinaryStrings(const string& binary1, const string& binary2) {
     return to_string(decimalSum);
 }
 
-int main() {
-    string binary1 = "1101";
-    string binary2 = "1011";
-
-    string result = addBinaryStrings(binary1, binary2);
-
-    cout << "Result (Decimal): " << result << endl;
-
-    return 0;
-}
-
-
 void Instructions::Instruction1(string instruction){
     // convert the hex string to int
     int memoryAddress = stoul(instruction.substr(2,2), 0, 16);
@@ -86,7 +70,9 @@ void Instructions::Instruction2(string instruction) {
     // convert the hex char to string
     int registerAddress =  (instruction[1] >= 'A') ? (instruction[1] - 'A' + 10) : (instruction[1] - '0');
     // put the data from the memory to the register
-    SetRegister(registerAddress, to_string(value));
+    stringstream hexNum;
+    hexNum << hex << stoi(to_string(value));
+    SetRegister(registerAddress, hexNum.str());
 }
 
 void Instructions::Instruction3(string instruction) {
@@ -122,10 +108,32 @@ void Instructions::Instruction5(string instruction) {
     int secondRegister =  (instruction[3] >= 'A') ? (instruction[3] - 'A' + 10) : (instruction[3] - '0');
 
     int thirdRegister = (instruction[1] >= 'A') ? (instruction[1] - 'A' + 10) : (instruction[1] - '0');
-    string num1 = toBinary(GetRegister(firstRegister));
-    string num2 = toBinary(GetRegister(secondRegister));
-    string sum = addBinaryStrings(num1, num2);
-    SetRegister(thirdRegister, sum);
+
+    string registerVal1 = GetRegister(firstRegister), registerVal2 = GetRegister(secondRegister);
+    int num1 = 0, num2 = 0, power = 1;
+
+    for (int i = registerVal1.size()-1; i >= 0; i--) {
+        int digit = (registerVal1[i] >= 'A') ? (registerVal1[i] - 'A' + 10) : (registerVal1[i] - '0');
+        digit *= power;
+        power *= 16;
+        num1 += digit;
+    }
+
+    power = 1;
+
+    for (int i = registerVal2.size()-1; i >= 0; i--) {
+        int digit = (registerVal2[i] >= 'A') ? (registerVal2[i] - 'A' + 10) : (registerVal2[i] - '0');
+        digit *= power;
+        power *= 16;
+        num2 += digit;
+    }
+
+    string num1Binary = toBinary(num1);
+    string num2Binary = toBinary(num2);
+    string sum = addBinaryStrings(num1Binary, num2Binary);
+    stringstream hexSum;
+    hexSum << hex << stoi(sum);
+    SetRegister(thirdRegister, hexSum.str()) ;
 }
 
 int Instructions::InstructionB(string instruction, int prCounter) {
@@ -142,8 +150,8 @@ int Instructions::InstructionB(string instruction, int prCounter) {
 void Instructions::InstructionC(string instruction) {
     if(instruction == "C000") {
         PrintScreen();
+        exit(0);
     }
-    
 }
 
 void Instructions::PrintScreen() {

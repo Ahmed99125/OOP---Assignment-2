@@ -37,6 +37,7 @@ int main(){
                 machine.PrintMemory();
                 break;
             case 7:
+                machine.PrintScreen();
                 machine.PrintMemory();
                 machine.PrintRegisters();
                 cout<< machine.GetProgramCounter();
@@ -48,7 +49,6 @@ int main(){
             case 9:
                 machine.ClearScreen();
                 break;
-
             case 0:
                 break;
         }

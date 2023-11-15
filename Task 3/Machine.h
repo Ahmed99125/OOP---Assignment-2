@@ -25,7 +25,7 @@ public:
     void SetRunning(bool run);
     string GetInstructionRegister();
     void FetchNextInstruction();
-    void executeInstruction(); // uncompleted
+    void executeInstruction();
     int GetProgramCounter();
     bool GetRunning();
 };
