@@ -8,6 +8,7 @@
 #include <string.h>
 #include "Memory.h"
 #include "Registers.h"
+#include <algorithm>
 using namespace std;
 
 class Instructions:  public Memory, public Registers {
