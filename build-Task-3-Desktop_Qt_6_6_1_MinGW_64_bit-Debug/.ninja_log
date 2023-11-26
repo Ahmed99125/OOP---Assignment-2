@@ -1,0 +1,7 @@
+# ninja log v5
+5	326	7226904900969388	CMakeFiles/Task_3.dir/Registers.cpp.obj	300e890194c0443f
+4	382	7226904901537863	CMakeFiles/Task_3.dir/Memory.cpp.obj	20988aa5fdecf9a
+7	1137	7226904909087664	CMakeFiles/Task_3.dir/main.cpp.obj	4a192ddebb7f53ae
+2	1110	7226904908808411	CMakeFiles/Task_3.dir/Machine.cpp.obj	440c46e43ba1e3d5
+0	1158	7226904909305132	CMakeFiles/Task_3.dir/Instructions.cpp.obj	3fc5174c404d2da6
+1243	1341	7226904911093122	Task_3.exe	3674c9f2fc6ed873

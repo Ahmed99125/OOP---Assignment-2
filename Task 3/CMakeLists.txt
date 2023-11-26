@@ -14,4 +14,5 @@ add_executable(Task_3
         Memory.cpp
         Registers.h
         Registers.cpp
-        main.cpp)
+        main.cpp
+        )
