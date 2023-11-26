@@ -16,6 +16,14 @@ class voleMachine : public QMainWindow
 public:
     voleMachine(QWidget *parent = nullptr);
     ~voleMachine();
+    void updatewindow();
+
+private slots:
+
+
+    void on_load_button_clicked();
+
+    void on_fetch_button_clicked();
 
 private:
     Ui::voleMachine *ui;

@@ -12,7 +12,7 @@ public:
     Memory();
     void setMemory(int address, string val);
     string getMemory(int address);
-    void GetInstructions(string fileName);
+    string GetInstructions(string fileName);
     string PrintMemory();
 };
 

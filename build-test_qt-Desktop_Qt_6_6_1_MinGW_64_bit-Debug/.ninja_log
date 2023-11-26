@@ -1,0 +1,87 @@
+# ninja log v5
+1	530	7227314168401263	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+1	530	7227314168401263	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+1	530	7227314168401263	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+1	530	7227314168401263	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+546	2325	7227314186777956	CMakeFiles/test_qt.dir/registers.cpp.obj	bb088a01e5f4330e
+543	2329	7227314186777956	CMakeFiles/test_qt.dir/machine.cpp.obj	1da5c2a3acd7fd87
+540	2330	7227314186787964	CMakeFiles/test_qt.dir/instructions.cpp.obj	1a02423bd125168d
+550	2331	7227314186777956	CMakeFiles/test_qt.dir/memory.cpp.obj	432b9274ce3c7a4c
+531	2332	7227314186828002	CMakeFiles/test_qt.dir/test_qt_autogen/mocs_compilation.cpp.obj	f245e73c364a15fd
+537	2382	7227314187358485	CMakeFiles/test_qt.dir/main.cpp.obj	b91c05fe100c8b5f
+534	3206	7227314195561893	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+3207	3434	7227314197850279	test_qt.exe	32a3c45e396c451b
+16	122	7227318347127653	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+16	122	7227318347127653	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+16	122	7227318347127653	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+16	122	7227318347127653	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+134	2239	7227318368296243	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2240	2388	7227318369757573	test_qt.exe	32a3c45e396c451b
+4	402	7227328324444798	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+4	402	7227328324444798	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+4	402	7227328324444798	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+4	402	7227328324444798	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+410	1639	7227328337242437	CMakeFiles/test_qt.dir/machine.cpp.obj	1da5c2a3acd7fd87
+404	1774	7227328338598154	CMakeFiles/test_qt.dir/main.cpp.obj	b91c05fe100c8b5f
+402	1787	7227328338718274	CMakeFiles/test_qt.dir/test_qt_autogen/mocs_compilation.cpp.obj	f245e73c364a15fd
+407	2640	7227328347259328	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2640	2808	7227328348900815	test_qt.exe	32a3c45e396c451b
+10	119	7227329066364770	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	119	7227329066364770	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+10	119	7227329066364770	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	119	7227329066364770	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+131	2303	7227329088200080	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2304	2454	7227329089691434	test_qt.exe	32a3c45e396c451b
+11	165	7227332519443878	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+11	165	7227332519443878	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+11	165	7227332519443878	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+11	165	7227332519443878	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+184	1407	7227332531861082	CMakeFiles/test_qt.dir/memory.cpp.obj	432b9274ce3c7a4c
+179	1412	7227332531911128	CMakeFiles/test_qt.dir/instructions.cpp.obj	1a02423bd125168d
+182	1413	7227332531921143	CMakeFiles/test_qt.dir/machine.cpp.obj	1da5c2a3acd7fd87
+176	2421	7227332542005952	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2422	2572	7227332543477288	test_qt.exe	32a3c45e396c451b
+10	159	7227332851277048	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	159	7227332851277048	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+10	159	7227332851277048	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	159	7227332851277048	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+171	2266	7227332872331215	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2266	2416	7227332873810020	test_qt.exe	32a3c45e396c451b
+9	397	7227336655148266	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+9	397	7227336655148266	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+9	397	7227336655148266	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+9	397	7227336655148266	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+408	1714	7227336668751258	CMakeFiles/test_qt.dir/machine.cpp.obj	1da5c2a3acd7fd87
+400	1776	7227336669391839	CMakeFiles/test_qt.dir/instructions.cpp.obj	1a02423bd125168d
+403	1916	7227336670783110	CMakeFiles/test_qt.dir/main.cpp.obj	b91c05fe100c8b5f
+397	1977	7227336671393656	CMakeFiles/test_qt.dir/test_qt_autogen/mocs_compilation.cpp.obj	f245e73c364a15fd
+406	2777	7227336679398269	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2777	2922	7227336680827293	test_qt.exe	32a3c45e396c451b
+5	111	7227341954029715	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+5	111	7227341954029715	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+5	111	7227341954029715	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+5	111	7227341954029715	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+123	1338	7227341966296346	CMakeFiles/test_qt.dir/instructions.cpp.obj	1a02423bd125168d
+127	2316	7227341976065818	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2316	2466	7227341977557182	test_qt.exe	32a3c45e396c451b
+9	105	7227347558690611	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+9	105	7227347558690611	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+9	105	7227347558690611	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+9	105	7227347558690611	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+116	2216	7227347579789426	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2216	2364	7227347581255810	test_qt.exe	32a3c45e396c451b
+10	107	7227349168775134	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	107	7227349168775134	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+10	107	7227349168775134	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+10	107	7227349168775134	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+122	1252	7227349180232059	CMakeFiles/test_qt.dir/memory.cpp.obj	432b9274ce3c7a4c
+119	2284	7227349190536862	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2285	2441	7227349192078261	test_qt.exe	32a3c45e396c451b
+12	166	7227352154439442	test_qt_autogen/timestamp	dd3640d01a6ba4d8
+12	166	7227352154439442	test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+12	166	7227352154439442	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/timestamp	dd3640d01a6ba4d8
+12	166	7227352154439442	D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/test_qt_autogen/mocs_compilation.cpp	dd3640d01a6ba4d8
+183	1412	7227352166902291	CMakeFiles/test_qt.dir/machine.cpp.obj	1da5c2a3acd7fd87
+181	1439	7227352167162533	CMakeFiles/test_qt.dir/instructions.cpp.obj	1a02423bd125168d
+178	2389	7227352176667554	CMakeFiles/test_qt.dir/volemachine.cpp.obj	895fbbe1df86e1f6
+2389	2538	7227352178123971	test_qt.exe	32a3c45e396c451b

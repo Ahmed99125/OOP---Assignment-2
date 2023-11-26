@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-fc88ac07990678cb9f56.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "test_qt",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_qt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_qt-Debug-9070dab6001f9c626893.json",
+					"name" : "test_qt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_qt_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_qt_autogen-Debug-24fc368c75efce762c23.json",
+					"name" : "test_qt_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_qt_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_qt_autogen_timestamp_deps-Debug-85bcd8c40075cf5c3079.json",
+					"name" : "test_qt_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/FCAI/third term/OOP/OOP---Assignment-2/build-test_qt-Desktop_Qt_6_6_1_MinGW_64_bit-Debug",
+		"source" : "D:/FCAI/third term/OOP/OOP---Assignment-2/test_qt"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

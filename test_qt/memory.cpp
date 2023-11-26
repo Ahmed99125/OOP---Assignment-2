@@ -15,10 +15,13 @@ string Memory::getMemory(int address) {
     return memory[address];
 }
 
-void Memory:: GetInstructions(string fileName){
+string Memory:: GetInstructions(string fileName){
     ifstream f1(fileName);
     string instruction;
     int counter = 0 ;
+    if(!f1.is_open()){
+        return "can't find this file";
+    }
     while(getline(f1,instruction)){
         memory[counter] = instruction[0];
         memory[counter].push_back(instruction[2]);
@@ -27,6 +30,9 @@ void Memory:: GetInstructions(string fileName){
         memory[counter].push_back(instruction[5]);
         counter++;
     }
+
+        return "file opened succsefully";
+
 }
 string Memory:: PrintMemory(){
     string s;

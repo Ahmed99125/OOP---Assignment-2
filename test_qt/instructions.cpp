@@ -150,14 +150,14 @@ int Instructions::InstructionB(string instruction, int prCounter) {
 void Instructions::InstructionC(string instruction) {
     if(instruction == "C000") {
         PrintScreen();
-        exit(0);
+        //exit(0);
     }
 }
 
-void Instructions::PrintScreen() {
-    cout << screen << endl;
+string Instructions::PrintScreen() {
+    return screen ;
 }
 
 void Instructions::ClearScreen() {
-    screen = "Screen:\n";
+    screen = "";
 }

@@ -14,7 +14,7 @@ using namespace std;
 
 class Instructions:  public Memory, public Registers {
 private:
-    string screen = "Screen:\n";
+    string screen ;
 public:
     void Instruction1(string instruction);
     void Instruction2(string instruction);
@@ -23,7 +23,7 @@ public:
     void Instruction5(string instruction);
     int InstructionB(string instruction, int prCounter);
     void InstructionC(string instruction);
-    void PrintScreen();
+    string PrintScreen();
     void ClearScreen();
 };
 

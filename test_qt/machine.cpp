@@ -12,24 +12,25 @@ void Machine::SetRunning(bool run) {
     running = run;
 }
 
-void Machine::FetchNextInstruction() {
-    if(!GetRunning()) return;
+string Machine::FetchNextInstruction() {
+    if(!GetRunning()) return "the code is halted";
     string tmp = getMemory(programCounter) + getMemory(programCounter+1);
     if ((tmp[0] < '1' || tmp[0] > '5') && (tmp[0] != 'B' && tmp[0] != 'C')) {
-        cout << "This instruction is not valid." << endl;
-        return;
+        //cout << "This instruction is not valid." << endl;
+
+        return "Not Valid!";
     }
     for (int i = 1; i < tmp.size(); i++) {
         if ((tmp[i] < '0' || tmp[i] > '9') && (tmp[i] < 'A' || tmp[i] > 'F')) {
-            cout << "This instruction is not valid." << endl;
-            return;
+           // cout << "This instruction is not valid." << endl;
+            return "Not Valid!";
         }
     }
     instructionRegister = tmp;
     programCounter += 2;
-    executeInstruction();
+    return executeInstruction();
 }
-void Machine:: executeInstruction(){
+string Machine:: executeInstruction(){
     switch (instructionRegister[0]) {
     case '1':
         Instruction1(instructionRegister);
@@ -54,6 +55,7 @@ void Machine:: executeInstruction(){
         SetRunning(false);
         break;
     }
+    return "Valid!";
 }
 string Machine::GetInstructionRegister(){
     return instructionRegister;

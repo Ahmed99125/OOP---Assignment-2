@@ -24,8 +24,8 @@ public:
     void SetProgramCounter(int val);
     void SetRunning(bool run);
     string GetInstructionRegister();
-    void FetchNextInstruction();
-    void executeInstruction();
+    string FetchNextInstruction();
+    string executeInstruction();
     int GetProgramCounter();
     bool GetRunning();
 };
